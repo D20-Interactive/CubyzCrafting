@@ -2,7 +2,7 @@
 
 print("This file will be run at load time!")
 
-core.register_node("cubyzcrafting:workbench", {
+core.register_node("cubyz_crafting:workbench", {
     description = "Workbench to make tools",
     tiles = {
         "crafting_workbench_top.png",
@@ -18,7 +18,7 @@ core.register_node("cubyzcrafting:workbench", {
     end,
     on_rightclick = function(_, _, player, _, _)
         -- Open the crafting UI
-        core.show_formspec(player:get_player_name(), "cubyzcrafting_workbench:form", 
+        core.show_formspec(player:get_player_name(), "cubyz_crafting_workbench:form", 
             "size[8,8]" ..
             "label[1,1;Crafting Menu]" ..
             "button[1,5;2,1;craft;Craft]"
@@ -29,7 +29,7 @@ core.register_node("cubyzcrafting:workbench", {
 -- Crafting recipe
 core.register_craft({
     type = "shaped",
-    output = "cubyzcrafting:workbench",
+    output = "cubyz_crafting:workbench",
     recipe = {
         {"", "default:wood", ""},
         {"default:wood", "default:wood", "default:wood"},
@@ -38,12 +38,12 @@ core.register_craft({
 })
 
 core.register_on_player_receive_fields(function(player, formname, fields)
-    if formname == "cubyzcrafting_workbench:form" then
+    if formname == "cubyz_crafting_workbench:form" then
         if fields.craft then
             local inv = player:get_inventory()
             if inv:contains_item("main", "default:wood 5") then
                 inv:remove_item("main", "default:wood 5")
-                inv:add_item("main", "cubyzcrafting:workbench")
+                inv:add_item("main", "cubyz_crafting:workbench")
                 core.chat_send_player(player:get_player_name(), "Crafted 1 Workbench!")
             else
                 core.chat_send_player(player:get_player_name(), "Not enough wood planks!")
