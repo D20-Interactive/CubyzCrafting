@@ -1,10 +1,12 @@
+-- luacheck: globals core
+
 print("This file will be run at load time!")
 
 core.register_node("cubyzcrafting:workbench", {
     description = "Workbench to make tools",
     tiles = {
         "crafting_workbench_top.png",
-        "",
+        "crafting_workbench_bottom.png",
         "crafting_workbench_side.png",
         "crafting_workbench_front.png",
     },
@@ -14,7 +16,7 @@ core.register_node("cubyzcrafting:workbench", {
         local meta = core.get_meta(pos)
         meta:set_string("infotext", "Workbench")
     end,
-    on_rightclick = function(pos, node, player, itemstack, pointed_thing)
+    on_rightclick = function(_, _, player, _, _)
         -- Open the crafting UI
         core.show_formspec(player:get_player_name(), "cubyzcrafting_workbench:form", 
             "size[8,8]" ..
@@ -24,6 +26,7 @@ core.register_node("cubyzcrafting:workbench", {
     end,
 })
 
+-- Crafting recipe
 core.register_craft({
     type = "shaped",
     output = "cubyzcrafting:workbench",
