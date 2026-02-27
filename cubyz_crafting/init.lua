@@ -7,7 +7,7 @@ core.register_node("cubyz_crafting:workbench", {
     tiles = { "workbench_top.png", "default_wood.png", "workbench_side.png",
 		"workbench_side.png", "workbench_front.png", "workbench_front.png" },
     paramtype2 = "facedir",
-    groups = {choppy = 1, workbench = 1},
+    groups = {choppy = 1},
     on_construct = function(pos)
         local meta = core.get_meta(pos)
         meta:set_string("infotext", "Workbench")
