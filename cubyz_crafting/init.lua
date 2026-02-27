@@ -4,8 +4,8 @@ print("This file will be run at load time!")
 
 core.register_node("cubyz_crafting:workbench", {
     description = "Workbench to make tools",
-    tiles = { "crafting_workbench_top.png", "default_wood.png", "crafting_workbench_side.png",
-		"crafting_workbench_side.png", "crafting_workbench_front.png", "crafting_workbench_front.png" },
+    tiles = { "workbench_top.png", "default_wood.png", "workbench_side.png",
+		"workbench_side.png", "workbench_front.png", "workbench_front.png" },
     paramtype2 = "facedir",
     groups = {choppy = 1, workbench = 1},
     on_construct = function(pos)
