@@ -31,9 +31,9 @@ core.register_craft({
     type = "shaped",
     output = "cubyz_crafting:workbench",
     recipe = {
-        {"", "default:wood", ""},
-        {"default:wood", "default:wood", "default:wood"},
-        {"", "default:wood", ""},
+        {"", "mcl_core:wood", ""},
+        {"mcl_core:wood", "mcl_core:wood", "mcl_core:wood"},
+        {"", "mcl_core:wood", ""},
     },
 })
 
@@ -41,8 +41,8 @@ core.register_on_player_receive_fields(function(player, formname, fields)
     if formname == "cubyz_crafting_workbench:form" then
         if fields.craft then
             local inv = player:get_inventory()
-            if inv:contains_item("main", "default:wood 5") then
-                inv:remove_item("main", "default:wood 5")
+            if inv:contains_item("main", "mcl_core:wood 5") then
+                inv:remove_item("main", "mcl_core:wood 5")
                 inv:add_item("main", "cubyz_crafting:workbench")
                 core.chat_send_player(player:get_player_name(), "Crafted 1 Workbench!")
             else
